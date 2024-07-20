@@ -2,18 +2,29 @@
 --> kubectl run redis --image=redis
 3- Create a pod with the name nginx and with the image “nginx123”
 Use a pod-definition YAML file.
--->
+--> kubectl apply -f nginx.yaml
 4- What is the nginx pod status?
+--> ErrImagePull
 5- Change the nginx pod image to “nginx” check the status again
+--> vi nginx.yaml
+--> kubectl get pods --> ngnix running
 6- How many ReplicaSets exist on the system?
+--> kubectl get replicasets --> zero
 7- create a ReplicaSet with
 name= replica-set-1
 image= busybox
 replicas= 3
+--> created replicaset.yaml
+--> kubectl apply -f replicaset.yaml
+--> kubectl get replicasets
 8- Scale the ReplicaSet replica-set-1 to 5 PODs.
+--> kubectl scale replicaset replica-set-1 --replicas=5
 9- How many PODs are READY in the replica-set-1?
+--> kubectl get replicaset --> 5
 10- Delete any one of the 5 PODs then check How many PODs exist now?
+--> kubectl delete pods repica-set-1-chcqh --> 5
 Why are there still 5 PODs, even after you deleted one?
+-->  ReplicaSets act as controllers ensuring a desired number of replicas are running. When you delete a pod, the ReplicaSet controller detects the missing replica and launches a new pod to reach the target number
 11- How many Deployments and ReplicaSets exist on the system?
 12- create a Deployment with
 name= deployment-1
