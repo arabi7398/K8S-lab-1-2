@@ -18,7 +18,10 @@ Mem: 2G
 4- How many Nodes exist on the system?
 --> kubectl get nodes --> 1
 5- Do you see any taints on master?
+--> kubectl describe node minikube | grep Taints --> none
 6- Apply a label color=blue to the master node
+--> kubectl label node minikube color=blue
+--> kubectl get nodes --show-labels
 7- Create a new deployment named blue with the nginx image and 3 replicas
 Set Node Affinity to the deployment to place the pods on master only
 NodeAffinity: requiredDuringSchedulingIgnoredDuringExecution
