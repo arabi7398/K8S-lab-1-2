@@ -13,7 +13,10 @@ Mem: 1G
 Resources Limits:
 CPU: 1 vcpu
 Mem: 2G
+--> kubectl create namespace finance
+--> kubectl apply -f finance.yaml
 4- How many Nodes exist on the system?
+--> kubectl get nodes --> 1
 5- Do you see any taints on master?
 6- Apply a label color=blue to the master node
 7- Create a new deployment named blue with the nginx image and 3 replicas
