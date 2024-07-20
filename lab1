@@ -1,0 +1,2 @@
+2-Create a pod with the name redis and with the image redis
+kubectl run redis --image=redis
